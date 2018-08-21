@@ -15,6 +15,7 @@ class Drush4 < Formula
   def install
     libexec.install Dir["*"]
     (libexec/"lib").install resource("Console_Table")
+	ln_s libexec/"lib/Console_Table-1.1.3/Table.php", libexec/"includes/table.inc"
     bin.install_symlink libexec+"drush"
   end
 end
