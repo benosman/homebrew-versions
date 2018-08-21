@@ -7,8 +7,14 @@ class Drush4 < Formula
 
   keg_only "Conflicts with drush in main repository."
 
+  resource "Console_Table" do
+    url "http://download.pear.php.net/package/Console_Table-1.1.3.tgz"
+    sha256 "2c9ad601b2ee777c20ffe5b0c76a0ee66ad069e8753973208a42cebb9c1be8b1"
+  end
+
   def install
     libexec.install Dir["*"]
+    (libexec/"lib").install resource("Console_Table")
     bin.install_symlink libexec+"drush"
   end
 end
